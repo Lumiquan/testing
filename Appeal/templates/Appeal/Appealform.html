@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appeal Request Form</title>
+    <style>
+        body {
+            background-color: #fffacd; /* Light yellow background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+           
+        }
+
+        .form-container {
+            width: 80%; /* Wider display */
+            max-width: 800px;
+            background-color: #ffffff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+        }
+
+        form h1 {
+            text-align: center;
+            color: #000000; /* Black color for text */
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #000000; /* Black color for text */
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="url"],
+        select,
+        .radio-group {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .radio-group input {
+            margin-right: 10px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ffeb3b; /* Yellow background */
+            color: #000000; /* Black color for text */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #fbc02d; /* Darker yellow on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <form method="POST">
+            <h1>Appeal Request Form</h1>
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="official-name">Please State Your Official Names *</label>
+                <input type="text" id="official-name" name="official-name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Please select your Country *</label>
+                <select id="country" name="country" required>
+                    <option value="kenya">Kenya</option>
+                    <option value="nigeria">Nigeria</option>
+                    <option value="uganda">Uganda</option>
+                    <option value="tanzania">Tanzania</option>
+                    <option value="malawi">Malawi</option>
+                    <option value="zambia">Zambia</option>
+                    <option value="mozambique">Mozambique</option>
+                    <option value="togo">Togo</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Name Of Assessor that Audited the Call *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="assessor" value="Victoria Juma" required> Victoria Juma</label>
+                    <label><input type="radio" name="assessor" value="Faustine Makau" required> Faustine Makau</label>
+                    <label><input type="radio" name="assessor" value="Geoffry Avino" required> Geoffry Avino</label>
+                    <label><input type="radio" name="assessor" value="Jumane Majengo" required> Jumane Majengo</label>
+                    <label><input type="radio" name="assessor" value="Abdalah Seleman" required> Abdalah Seleman</label>
+                    <label><input type="radio" name="assessor" value="Solomon Ajijola" required> Solomon Ajijola</label>
+                    <label><input type="radio" name="assessor" value="Lucy Edith" required> Lucy Edith</label>
+                    <label><input type="radio" name="assessor" value="Rosemary Mbabazi" required> Rosemary Mbabazi</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Quality Assessor Email address *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="assessor-email" value="victoria.juma@greenlightplanet.com" required> victoria.juma@greenlightplanet.com</label>
+                    <label><input type="radio" name="assessor-email" value="faustine.makau@greenlightplanet.com" required> faustine.makau@greenlightplanet.com</label>
+                    <label><input type="radio" name="assessor-email" value="geoffry.avino@greenlightplanet.com" required> geoffry.avino@greenlightplanet.com</label>
+                    <label><input type="radio" name="assessor-email" value="jumane.majengo@sunking.com" required> jumane.majengo@sunking.com</label>
+                    <label><input type="radio" name="assessor-email" value="mansour.seleman@sunking.com" required> mansour.seleman@sunking.com</label>
+                    <label><input type="radio" name="assessor-email" value="lucy.edith@sunking.com" required> lucy.edith@sunking.com</label>
+                    <label><input type="radio" name="assessor-email" value="ajijola.solomon@sunking.com" required> ajijola.solomon@sunking.com</label>
+                    <label><input type="radio" name="assessor-email" value="mbabazi.rosemary@sunking.com" required> mbabazi.rosemary@sunking.com</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="call-phone-number">Appealed call phone number *</label>
+                <input type="text" id="call-phone-number" name="call-phone-number" required>
+            </div>
+
+            <div class="form-group">
+                <label>Did Agent Listen to the Call again? *</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="agent-listen" value="yes" required> Yes</label>
+                    <label><input type="radio" name="agent-listen" value="no" required> No</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="parameter">Parameter that was supposedly not fairly scored *</label>
+                <input type="text" id="parameter" name="parameter" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feedback">Feedback Received *</label>
+                <input type="text" id="feedback" name="feedback" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Please state your reason for appeal *</label>
+                <input type="text" id="reason" name="reason" required>
+            </div>
+
+            <div class="form-group">
+                <label for="call-link">Attach the link to the call that was audited *</label>
+                <input type="url" id="call-link" name="call-link" required>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

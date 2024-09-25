@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Page</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff;
+        }
+        .container {
+            text-align: center;
+            width: 300px;
+        }
+        .container input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container input[type="submit"]:hover {
+            background-color: #555;
+        }
+        .container a {
+            display: inline-block;
+            margin: 5px;
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Provide your email to receive reset instructions</h2>
+        <form>
+            <input type="email" placeholder="Email" required>
+            <input type="submit" value="Submit">
+        </form>
+        <div>
+            <a href="{% url 'loginpage' %}">Already have an account? Login</a>
+            <a href="{% url 'Signuppage' %}">Register</a>
+        </div>
+    </div>
+</body>
+</html>
